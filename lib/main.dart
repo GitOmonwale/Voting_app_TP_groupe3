@@ -1,6 +1,5 @@
-import 'package:dernier_tp/pages/candidats_form.dart';
-import 'package:dernier_tp/pages/canditats_pages.dart';
-import 'package:dernier_tp/pages/favorite-canditats.dart';
+
+import 'package:dernier_tp/pages/all-canditats.dart';
 import 'package:flutter/material.dart';
 
 void main() {

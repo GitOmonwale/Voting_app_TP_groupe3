@@ -85,6 +85,25 @@ iinputType: TextInputType.name,
                  
               SizedBox(height: 10,),
                
+//                              IIinput(
+
+//                 name: "Lien de l'image",
+// iinputType: TextInputType.name,
+//                 validator: (value) {
+//                   if (value!.isEmpty) {
+//                     return " Champ obligatoire";
+//                   }
+//                 },
+//                 onSaved: (value) {
+
+//                   // print("Valeur à sauvegarder $value");
+//                   person.photo=value;
+
+//                 },
+ 
+//               ),
+                 
+              SizedBox(height: 10,),
             ],
             
           ),
