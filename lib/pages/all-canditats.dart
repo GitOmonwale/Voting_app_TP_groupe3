@@ -42,73 +42,111 @@ class _FriendListPageState extends State<FriendListPage> {
         ],
       ),
       body: Container(
-        child: ListView(
-          children: persons
-              .map(
-                (person) => Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                  ),
-                  margin: EdgeInsets.all(10),
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        width: 80,
-                        height: 80,
-                        foregroundDecoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Image.network(
-                          'https://guardian.ng/wp-content/uploads/2022/06/Adebayo-2.jpg',
-                          fit: BoxFit.cover,
-                          loadingBuilder: (BuildContext context, Widget child,
-                              ImageChunkEvent? loadingProgress) {
-                            if (loadingProgress == null) return child;
-                            return Center(
-                              child: CircularProgressIndicator(
-                                value: loadingProgress.expectedTotalBytes !=
-                                        null
-                                    ? loadingProgress.cumulativeBytesLoaded /
-                                        loadingProgress.expectedTotalBytes!
-                                    : null,
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 10.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "${person.name} ${person.surname}",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                "${person.bibliography} ",
-                                style: TextStyle(
-                                    color: Colors.black.withOpacity(0.3)),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+        child: Column(
+          children: [
+
+
+Padding(
+            padding:EdgeInsets.only(left:20,top:40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Candidates",
+                  style: TextStyle(
+                    fontSize: 28,
+                    color: Colors.grey,
                   ),
                 ),
-              )
-              .toList(),
+                Padding(
+                  padding:EdgeInsets.only(right: 20.0),
+                  child: Text(
+                    "${persons.length} candidates",style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                  ),
+                  ),
+                ),
+              ],
+                ),
+          ),
+
+
+            Expanded(
+              child: ListView(
+                children: persons
+                    .map(
+                      (person) => Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
+                        margin: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
+                        child: Row(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              width: 80,
+                              height: 80,
+                              foregroundDecoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Image.network(
+                                'https://guardian.ng/wp-content/uploads/2022/06/Adebayo-2.jpg',
+                                fit: BoxFit.cover,
+                                loadingBuilder: (BuildContext context, Widget child,
+                                    ImageChunkEvent? loadingProgress) {
+                                  if (loadingProgress == null) return child;
+                                  return Center(
+                                    child: CircularProgressIndicator(
+                                      value: loadingProgress.expectedTotalBytes !=
+                                              null
+                                          ? loadingProgress.cumulativeBytesLoaded /
+                                              loadingProgress.expectedTotalBytes!
+                                          : null,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                padding: EdgeInsets.only(left: 10.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "${person.name} ${person.surname}",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      "${person.bibliography} ",
+                                      style: TextStyle(
+                                          color: Colors.black.withOpacity(0.3)),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
+            ),
+
+            
+          ],
+          
         ),
+        
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
