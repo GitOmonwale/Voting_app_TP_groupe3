@@ -1,6 +1,7 @@
 import 'package:dernier_tp/common/IButton.dart';
 import 'package:dernier_tp/common/IIinput.dart';
 import 'package:dernier_tp/models/person.dart';
+import 'package:dernier_tp/pages/http.dart';
 import 'package:flutter/material.dart';
  
 class FriendFormPage extends StatefulWidget {
@@ -92,12 +93,13 @@ iinputType: TextInputType.name,
       bottomNavigationBar: BottomAppBar(
         child: IButton(
           onPressed: () {
-          if(  _formKey.currentState!.validate()){
-            _formKey.currentState!.save();
-           Navigator.pop(context, person);
-          }
-          },
-          text: "S'incrire",
+    if(  _formKey.currentState!.validate()){
+      _formKey.currentState!.save();
+      sendDataToServer(person);
+      Navigator.pop(context, person);
+    }
+  },
+  text: "S'incrire",
         ),
       ),
     );

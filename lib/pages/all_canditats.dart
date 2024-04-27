@@ -1,7 +1,7 @@
 import 'package:dernier_tp/models/person.dart';
 import 'package:dernier_tp/pages/candidats_form.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+ 
 
 class FriendListPage extends StatefulWidget {
   const FriendListPage({super.key});
@@ -11,10 +11,9 @@ class FriendListPage extends StatefulWidget {
 }
 
 class _FriendListPageState extends State<FriendListPage> {
-  String name = "";
-  bool liked = false;
+   
   List<Person> persons = [];
-  List<Person> friends = [];
+   
 
   @override
   Widget build(BuildContext context) {

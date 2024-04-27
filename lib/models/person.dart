@@ -2,13 +2,17 @@ class Person {
   String? name;
   String? surname;
   String? bibliography;
-  String? photo;
+   
    
 
-  Person({this.name, this.surname, this.bibliography,this.photo});
+  Person({this.name, this.surname, this.bibliography});
 
   @override
-  String toString() {
-    return 'Person{name: $name, surname: $surname, bibliography: $bibliography, photo:$photo}';
+   Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'surname': surname,
+      'bibliography': bibliography,
+    };
   }
 }
